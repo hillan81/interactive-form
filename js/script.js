@@ -132,8 +132,19 @@ activities.addEventListener('change', (e) => {
 
 /**
     --PAYMENT INFO SECTION--
-      Show and hide the payment options depending on the users selection.
+      Show and hide the payment options depending on the users selection. 
+      Display Credit Card as the default option.
+
 **/
+
+function SetDefaultValue() {
+    var populateField = document.getElementById("payment").value="credit-card";
+}
+
+window.onload = function(){
+    SetDefaultValue();
+};
+
 paypal.style.display = 'none'; 
 bitcoin.style.display = 'none'; 
 
@@ -163,6 +174,7 @@ payment.addEventListener('change', (e) => {
 /*
    VALIDATION FUNCTIONS
 */
+
 function nameValidator() {
     const nameField = nameInput.value;
     const nameValidate = /^[A-Za-z]+ ?[A-Za-z]+ ?[A-Za-z]+$/i.test(nameField);
@@ -218,7 +230,6 @@ function passedValidationUpdate (childElement) {
 
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault(nameInput);
     const nameField = nameInput.value;
     const nameValidate = /^[A-Za-z]+ ?[A-Za-z]+ ?[A-Za-z]+$/i.test(nameField);
 
